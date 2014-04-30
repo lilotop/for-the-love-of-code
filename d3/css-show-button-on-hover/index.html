@@ -5,45 +5,69 @@
         font-size: 34px;
     }
 
-    table {
+    .container {
         border: 2px solid #aaa;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
     }
 
-    td {
+    .row:nth-child(even) {
+        background-color: #eee;
+    }
+    .row {
         padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;        
     }
 
-    td:last-child {
+    .fade-in {
         opacity: 0.1;
         cursor: pointer;
         transition: opacity 600ms;
+        flex: 0 0 auto;
+        border: 1px solid red;
     }
-
-    tr:hover td:last-child {
+    .pop-in {
+        transition: margin-right 600ms;
+        cursor: pointer;
+        margin-right: -45px;
+        flex: 0 0 auto;
+        border: 1px solid blue;
+    }
+    .row:hover {
+        background-color: #ccc;
+    }
+    .row:hover .fade-in {
         opacity: 1;
+    }
+    .row:hover .pop-in {
+        margin-right: 0;
     }
 
 </style>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>&#9786;</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Alice</td>
-        <td>&#9786;</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Bob</td>
-        <td>&#9786;</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Cat</td>
-        <td>&#9786;</td>
-    </tr>
+<div class="container">
+    <div class="row">
+        This is a line
+        <span class="fade-in">&#9786;</span>
+    </div>
+    <div class="row">
+        This is a another line
+        <span class="fade-in">&#9786;</span>
+    </div>
+    <div class="row">
+        Here is a another one
+        <span class="fade-in">&#9786;</span>
+    </div>
+    <div class="row">
+        This one pops ins
+        <span class="pop-in">&#9786;</span>
+    </div>
+    <div class="row">
+        Also pops in
+        <span class="pop-in">&#9786;</span>
+    </div>
 
-</table>
+
+</div>
